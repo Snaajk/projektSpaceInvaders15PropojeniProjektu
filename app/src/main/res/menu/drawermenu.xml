@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/plocha" android:title="Plocha" android:icon="@drawable/ic_database"/>
+    <item android:id="@+id/hra" android:title="Hra" android:icon="@drawable/ic_configuration_cogwheel_interface_symbol"/>
+    <item android:id="@+id/foto" android:title="Foto" android:icon="@drawable/ic_right_menu_bars"/>
+    <item android:id="@+id/nastaveni" android:title="Nastaveni" android:icon="@drawable/ic_right_menu_bars"/>
+    <item android:id="@+id/konec" android:title="Konec" android:icon="@drawable/ic_exclamation_sign_in_oval_speech_bubble"/>
+
+</menu>
