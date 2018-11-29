@@ -91,21 +91,11 @@ public class Stara__SpaceInvadersView extends SurfaceView implements Runnable{
         screenX = x;
         screenY = y;
 
-
         nova_gyroskopBullet= new Nova_GyroskopBullet(mActivity);
 
 
         prepareLevel();
         backgroundView();
-
-//        playing = true;
-//        Thread thread = new Thread(this);
-//        thread.start();
-
-
-
-
-
 
     }
 

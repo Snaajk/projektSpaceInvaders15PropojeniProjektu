@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.DisplayMetrics;
 import android.view.SurfaceHolder;
 
 public class Nova_VykresleniMonitoru  {
@@ -104,9 +105,10 @@ public class Nova_VykresleniMonitoru  {
     private void setFoto(Context context, Canvas canvas, Paint paint){                                        //za4.
 
 //        Bitmap bitmap1 = BitmapFactory.decodeResource(context.getResources(), R.drawable.obrazek1);
-       /* backgroudBitmap = Bitmap.createScaledBitmap(backgroudBitmap,(int) screenX,(int) screenY,false);
+        backgroudBitmap = Bitmap.createScaledBitmap(backgroudBitmap, (int) screenX, (int) screenY, false);
+        backgroudBitmap.setDensity(DisplayMetrics.DENSITY_DEFAULT);
         float i =0.0f, y = 0.0f;
-        canvas.drawBitmap(backgroudBitmap, i, y, paint);*/
+        canvas.drawBitmap(backgroudBitmap, i, y, paint);
     }
 
     public void setPicture(Bitmap bitmap){
