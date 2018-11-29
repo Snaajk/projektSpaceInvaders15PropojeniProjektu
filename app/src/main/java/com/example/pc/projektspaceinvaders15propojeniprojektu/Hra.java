@@ -91,8 +91,10 @@ public class Hra extends Fragment {
             Point size = new Point();                                                                   //za4.
             display.getSize(size);
             staraSpaceInvadersView = new Stara__SpaceInvadersView(context, size.x, size.y, activity);                    //za5.
-            activity.setContentView(staraSpaceInvadersView);
+//            activity.setContentView(staraSpaceInvadersView);
 
+
+            System.out.println("private void game(){ @@@@@@@@@@@@@@@@@ je null   !!!!!!!!!!!!!!!!!!!!!!"+size.x+" "+size.y);
 
         }else{
             System.out.println("private void game(){ !!!!!!!!!!!!!!!! je null   !!!!!!!!!!!!!!!!!!!!!!");
@@ -108,17 +110,40 @@ public class Hra extends Fragment {
 
 
 
-        Context context = ((MainActivity)getActivity()).getContext();
-        MainActivity activity =((MainActivity)getActivity()).getActivity();
-        Display display = getActivity().getWindowManager().getDefaultDisplay();                                   //za3.
-        Point size = new Point();                                                                   //za4.
-        display.getSize(size);
+//        Context context = ((MainActivity)getActivity()).getContext();
+//        MainActivity activity =((MainActivity)getActivity()).getActivity();
+//        Display display = getActivity().getWindowManager().getDefaultDisplay();                                   //za3.
+//        Point size = new Point();                                                                   //za4.
+//        display.getSize(size);
+
+
+        game();
+
+
+
 
 //        return inflater.inflate(R.layout.fragment_hra, container, false);
-        return  new Stara__SpaceInvadersView(context, size.x, size.y, activity);
-//        return staraSpaceInvadersView;
+//        return  new Stara__SpaceInvadersView(context, size.x, size.y, activity);
+        return staraSpaceInvadersView;
 //        return  staraSpaceInvadersView;
     }
+
+    @Override
+    public void onResume() {                                                                     //za6.
+//        initListeners();
+        super.onResume();
+        staraSpaceInvadersView.resume();                                                                 //za7.
+    }
+
+
+    @Override
+    public void onPause() {                                                                      //za8.
+        /* mSensorManager.unregisterListener(this);*/
+        super.onPause();
+        staraSpaceInvadersView.pause();                                                                  //za9.
+    }
+
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
