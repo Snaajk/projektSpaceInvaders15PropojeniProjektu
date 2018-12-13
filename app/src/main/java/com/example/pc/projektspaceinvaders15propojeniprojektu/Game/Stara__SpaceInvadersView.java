@@ -45,6 +45,7 @@ import java.util.ArrayList;
 
 public class Stara__SpaceInvadersView extends SurfaceView implements Runnable{
 
+    private final MainActivity mActivity;
     Context context;
     private Thread gameThread = null;                                                               //za1.
     private SurfaceHolder ourHolder;                                                                //za2.
@@ -79,7 +80,9 @@ public class Stara__SpaceInvadersView extends SurfaceView implements Runnable{
         super(context);
 
 
+
         this.context = context;
+        this.mActivity = mActivity;
 
 
         ourHolder = getHolder();
@@ -88,17 +91,24 @@ public class Stara__SpaceInvadersView extends SurfaceView implements Runnable{
         screenX = x;
         screenY = y;
 
-
         nova_gyroskopBullet= new Nova_GyroskopBullet(mActivity);
 
 
         prepareLevel();
-        surfaceView();
-
+        backgroundView();
 
     }
 
-    private void surfaceView(){
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    }
+
+
+
+
+
+    private void backgroundView(){
         Bitmap bitmap1 = BitmapFactory.decodeResource(context.getResources(), R.drawable.obrazek1a);
 
         System.out.println("before cropped height " + bitmap1.getHeight() + "and width: " + bitmap1.getWidth());
@@ -106,6 +116,9 @@ public class Stara__SpaceInvadersView extends SurfaceView implements Runnable{
         System.out.println("after cropped height "+had.getHeight() +"and width: " + had.getWidth());
 
         drawMonitor.setPicture(had);
+
+
+
     }
 
     private void prepareLevel(){
@@ -188,6 +201,7 @@ public class Stara__SpaceInvadersView extends SurfaceView implements Runnable{
                 }
             }
 
+                    System.out.println("ran 2  " + screenX+" "+ screenY+ " "+ paused+" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
         }
 
@@ -406,6 +420,7 @@ public class Stara__SpaceInvadersView extends SurfaceView implements Runnable{
 
     public void resume() {
         playing = true;
+//        gameThread = new Thread(this);
         gameThread = new Thread(this);
         gameThread.start();
     }
